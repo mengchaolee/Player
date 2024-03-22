@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>孟釗聽歌</title>
+    <link rel="stylesheet" href="player.css">
+</head>
+
+<body>
+
+    <audio id="myAudio">
+        <source  type="audio/mpeg">
+    </audio>
+
+    <div id="controlPanel">
+        <select id="musicPool" onchange="changeMusic(0)">
+
+        </select>
+        <hr>
+        <div id="funcBtn">
+
+            <span onclick="playMusic()">4</span>
+            <!-- <span onclick="pauseMusic()">;</span> -->
+            <span onclick="stopMusic()">&lt;</span>
+            <span onclick="changeMusic(-1)">9</span>
+            <span onclick="changeTime(-10)">7</span>
+            <span onclick="changeTime(10)">8</span>
+            <span onclick="changeMusic(1)">:</span>
+            <span onclick="setMuted()">V</span>
+            <span  onclick="setFuncBtnStatus(event)">q</span>
+            <span  onclick="setFuncBtnStatus(event)">s</span>
+            <span  onclick="setFuncBtnStatus(event)">`</span>
+            <span onclick="showBook()">@</span>
+        </div>
+        <hr>
+        <input type="range" id="progressBar" value="0" oninput="setProgress()">
+        <div id="volControl">
+            <input type="range" value="70" oninput="setVolumeByRangeBar()">
+            <input type="button" value="-" onclick="setVolume(-1)">
+            <input type="button" value="+" onclick="setVolume(1)">
+            <input type="text" readonly>
+        </div>
+        <img id="logo" src="logo.png">
+        <hr>
+        <div id="info">
+            <div>請按下播放鈕</div>
+            <div>00:00 / 00:00</div>
+        </div>
+        
+
+
+        <hr>
+        <div id="book" class="hide">
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div  title="music/01 I Want That.mp3">I Want That</div>
+                <div  title="music/02 TOMBOY .mp3">TOMBOY</div>
+                <div  title="music/03 Nxde.mp3">Nxde</div>
+                <div  title="music/04 Allergy .mp3">Allergy</div>
+                <div  title="music/05 Queencard.mp3">Queencard</div>
+                
+            </div>
+            <div ondrop="drop(event)" ondragover="allowDrop(event)">
+
+            </div>
+            <button onclick="updateMusic()">更新歌單</button>
+
+            
+        </div>
+    </div>
+
+    <script src="player.js"></script>
+</body>
+
+</html>
